@@ -15,17 +15,10 @@ public class Market {
         return marketName;
     }
 
-    public void setMarketName(String marketName) {
-        this.marketName = marketName;
-    }
-
     public List<Country> getCountries() {
         return countries;
     }
 
-    public void setCountries(List<Country> countries) {
-        this.countries = countries;
-    }
 
     @Override
     public String toString() {

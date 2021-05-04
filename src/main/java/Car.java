@@ -9,9 +9,6 @@ public class Car {
     private String segment;
     public boolean isAutomatic;
 
-    List<Car> carList = new ArrayList<>();
-
-
     public Car(Manufacturer manufacturer, Market market,List<Dimension> dimensionslist, Country country, String segment, boolean isAutomatic) {
         this.dimensionslist = dimensionslist;
         this.manufacturer = manufacturer;
@@ -25,16 +22,8 @@ public class Car {
         return segment;
     }
 
-    public void setSegment(String segment) {
-        this.segment = segment;
-    }
-
     public boolean isAutomatic() {
         return isAutomatic;
-    }
-
-    public void setAutomatic(boolean automatic) {
-        isAutomatic = automatic;
     }
 
     public List<Dimension> getDimensionslist() {
