@@ -1,12 +1,13 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.ListIterator;
 
 public class Main {
     public static List<Car> carList = new ArrayList<>();
     public static List<Dimension> dimlist = new ArrayList<>();
     public static List<Country> clist;
-
+    public static List<String> sorted;
 
     public static void main(String[] args) {
 
@@ -64,49 +65,34 @@ public class Main {
         List<Dimension> dim10 = Arrays.asList(new Dimension(34, 25, 400));
 
 
-        Car car = new Car(manufacturer, market, dim1, country, "standard", true);
+        Car car = new Car(manufacturer, market, dim1, country, "Cargo", false);
         carList.add(new Car(manufacturer1, market1, dim1, country1, "standard", true));
-        carList.add(new Car(manufacturer2, market2, dim2, country2, "standard", true));
+        carList.add(new Car(manufacturer2, market2, dim2, country2, "Business", false));
         carList.add(new Car(manufacturer3, market3, dim3, country3, "standard", true));
-        carList.add(new Car(manufacturer4, market, dim4, country4, "standard", true));
+        carList.add(new Car(manufacturer4, market, dim4, country4, "Business", false));
         carList.add(new Car(manufacturer5, market5, dim5, country5, "standard", true));
-        carList.add(new Car(manufacturer6, market5, dim6, country1, "standard", true));
-        carList.add(new Car(manufacturer7, market4, dim7, country2, "standard", true));
-        carList.add(new Car(manufacturer8, market3, dim8, country3, "standard", true));
-        carList.add(new Car(manufacturer9, market2, dim9, country4, "standard", true));
-        carList.add(new Car(manufacturer10, market1, dim10, country5, "standard", true));
+        carList.add(new Car(manufacturer6, market5, dim6, country1, "Cargo", false));
+        carList.add(new Car(manufacturer7, market4, dim7, country2, "Transport", true));
+        carList.add(new Car(manufacturer8, market3, dim8, country3, "Bus", false));
+        carList.add(new Car(manufacturer9, market2, dim9, country4, "Taxi", true));
+        carList.add(new Car(manufacturer10, market1, dim10, country5, "Bus", false));
 
-
+        //print all items
         for (Car c : carList) {
-            System.out.println(c);
+            //System.out.println(c);
         }
 
         // call search country
-        searchCar();
+        //searchCar("Mazda");
+
+       car.searchCar("Bmw",carList);
+
 
         //find country
         //System.out.println(findCountry("Poland"));
     }
 
-    //search country
-    public static void searchCar() {
-        for (Car c : carList) {
-            if (carList.size() > 0) {
-                if ((c.isAutomatic == true) && (c.manufacturer.getType().equals("Bmw"))) {
-                    for (int i = 0; i < c.getDimensionslist().size(); i++) {
-                        if (c.getDimensionslist().get(i).getTankCapacityInltr() > 150) {
-                            System.out.println("Country Name: " + c.country.getCountryName() + "\t" + "Country Sign: " + c.country.getCountrySign() + " \t");
-                        } else {
-                            System.out.println("can't find the specified index");
-                        }
-                    }
-                }
-            } else {
-                System.out.println("Car list is empty");
-            }
-        }
 
-    }
 
     public static String findCountry(String country){
         int index = carList.indexOf(country);
